@@ -8,8 +8,10 @@ const user_agents = require("./config/userAgents");
 const settings = require("./config/config");
 const { sleep, getRandomNumber } = require("./utils");
 const { checkBaseUrl } = require("./checkAPI");
-
-console.clear();
+const { spawn } = require('child_process');
+const os = require('os');
+const clearCmd = os.platform() === 'win32' ? 'cls' : 'clear';
+spawn(clearCmd, [], { stdio: 'inherit' });
 
 class Clayton {
   constructor(accountIndex, initData, session_name, baseURL) {
